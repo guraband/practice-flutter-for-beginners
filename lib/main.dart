@@ -37,7 +37,7 @@ class _MyWidgetState extends State<MyWidget> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              showTitle ? const MyLargeTitle() : const Text("nothing"),
+              showTitle ? const MyLargeTitle() : const Text("nothing..."),
               IconButton(
                 onPressed: toggleButton,
                 icon: showTitle
