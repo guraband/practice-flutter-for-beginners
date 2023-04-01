@@ -1,85 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:toonflix/widgets/screens/home_screen.dart';
 
 void main() {
-  runApp(const MyWidget());
+  runApp(const App());
 }
 
-class MyWidget extends StatefulWidget {
-  const MyWidget({super.key});
-
-  @override
-  State<MyWidget> createState() => _MyWidgetState();
-}
-
-class _MyWidgetState extends State<MyWidget> {
-  bool showTitle = true;
-
-  void toggleButton() {
-    setState(() {
-      showTitle = !showTitle;
-    });
-  }
+class App extends StatelessWidget {
+  const App({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
+        scaffoldBackgroundColor: const Color(0xFFE7627C),
         textTheme: const TextTheme(
-          titleLarge: TextStyle(
-            color: Colors.red,
-            fontSize: 30,
+          displayLarge: TextStyle(
+            color: Color(0xFF232B55),
           ),
         ),
+        cardColor: const Color(0xFFF4EDDB),
       ),
-      home: Scaffold(
-        backgroundColor: Colors.white,
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              showTitle ? const MyLargeTitle() : const Text("nothing"),
-              IconButton(
-                onPressed: toggleButton,
-                icon: showTitle
-                    ? const Icon(Icons.remove_red_eye)
-                    : const Icon(Icons.remove_red_eye_outlined),
-              )
-            ],
-          ),
-        ),
+      home: const Scaffold(
+        body: HomeScreen(),
       ),
-    );
-  }
-}
-
-class MyLargeTitle extends StatefulWidget {
-  const MyLargeTitle({
-    super.key,
-  });
-
-  @override
-  State<MyLargeTitle> createState() => _MyLargeTitleState();
-}
-
-class _MyLargeTitleState extends State<MyLargeTitle> {
-  @override
-  void initState() {
-    print("initState");
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    print("dispose");
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    print("build");
-    return Text(
-      "My Large Title",
-      style: Theme.of(context).textTheme.titleLarge,
     );
   }
 }
