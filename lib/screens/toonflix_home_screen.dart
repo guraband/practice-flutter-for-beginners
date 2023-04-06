@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:toonflix/models/webtoon_model.dart';
 import 'package:toonflix/services/api_service.dart';
-import 'package:toonflix/widgets/screens/webtoon_widget.dart';
+import 'package:toonflix/widgets/webtoon_widget.dart';
 
 class ToonflixHomeScreen extends StatelessWidget {
   ToonflixHomeScreen({super.key});
@@ -56,12 +56,13 @@ class ToonflixHomeScreen extends StatelessWidget {
       ),
       itemCount: snapshot.data!.length,
       itemBuilder: (context, index) {
-        print(index);
         var webtoon = snapshot.data![index];
+        print(webtoon.id);
         return Webtoon(
           title: webtoon.title,
           thumb: webtoon.thumb,
           id: webtoon.id,
+          idx: index,
         );
       },
       separatorBuilder: (context, index) {
