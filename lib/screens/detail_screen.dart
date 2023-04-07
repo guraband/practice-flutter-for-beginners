@@ -9,6 +9,10 @@ class DetailScreen extends StatelessWidget {
     required this.id,
   });
 
+  // final Future<WebtoonDetailModel> webtoons = ApiService.getToonById(id);
+  // final Future<List<WebtoonEpisodeModel>> episodes =
+  // const ApiService.getLatestEpisodesById(id, {super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
